@@ -117,9 +117,9 @@ if (circle <= R) {
 function graf(x, y) {
 
 	var p1 = -0.6 * x + 3;
-	var	p2 = 0.4 * x - 2;
-	var	p3 = -1.5 * x - 12;
-	var	p4 = 0.5 * x + 4;
+	var p2 = 0.4 * x - 2;
+	var p3 = -1.5 * x - 12;
+	var p4 = 0.5 * x + 4;
 
 	if (y <= p1 && y >= p2 && y >= p3 && y <= p4) {
 		return true;
