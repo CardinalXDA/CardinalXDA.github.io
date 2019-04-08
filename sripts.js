@@ -1,19 +1,29 @@
 // Задача №1
-var hour = +prompt('Введите часы', );
-var minute = +prompt('Введите минуты', );
-if (hour >=0 && hour <=23 && minute >=0 && minute <=59) {
-	alert('Коректное время ' + hour + ':' + minute);
-} else {
-	alert('Не коректное время ' + hour + ':' + minute);
+function isTimeValid(hour, minute){
+	if (hour >=0 && hour <=23 && minute >=0 && minute <=59) {
+		return true;
+	} else {
+		return false;
+	};
 };
+console.log(isTimeValid(23, 40));
+console.log(isTimeValid(24, 60));
+console.log(isTimeValid(25, 70));
 
 // Задача №2
 function addMinutes(hours, min, addMin){
 	var newMin = (min + addMin) % 60;
 	var newHours = (hours + Math.floor((min + addMin)/60)) % 24;
-		return newHours + ":" + newMin;
+		if (newHours <= 9) {
+			newHours = '0' + newHours;
+		};
+		if (newMin <= 9) {
+			newMin = '0' + newMin;
+		};
+			return newHours + ":" + newMin;
 }
-console.log(addMinutes(10, 30, 40));
+console.log(addMinutes(23, 40, 83));
+console.log(addMinutes(10, 30, 23));
 
 // Задача №3
 var month = +prompt('Введите номер месяца', );
@@ -32,33 +42,33 @@ if (month <= 12) {
 	};
 } else {
 	alert( 'Месяцев в году 12 а не ' +  month);
-}
+};
 
 // Задача №4
 var days = ['День','Дня','Дней'];
 var day = +prompt('Введите номер дня', );
 
 function declension(day, days) {
-    var result;
-    var count = day % 100;
-	    if (count >= 5 && count <= 20) {
-	        result = days['2'];
-	    } else {
-	        count = count % 10;
-	        if (count == 1) {
-	            result = days['0'];
-	        } else if (count >= 2 && count <= 4) {
-	            result = days['1'];
-	        } else {
-	            result = days['2'];
-	        }
+	var result;
+	var count = day % 100;
+		if (count >= 5 && count <= 20) {
+			result = days['2'];
+		} else {
+		count = count % 10;
+			if (count == 1) {
+				result = days['0'];
+			} else if (count >= 2 && count <= 4) {
+				result = days['1'];
+			} else {
+				result = days['2'];
+			}
 	    }
     return result;
 }
 alert (day + ' ' + declension(day, days) );
 
 //Задача №5
-/*var n = +prompt('Введите число для подсчёта суммы', );
+var n = +prompt('Введите число для подсчёта суммы', );
 function summ(n){
     var result = 0;
 	while(n){
@@ -66,7 +76,7 @@ function summ(n){
 	}
     return result;
 }
-console.log(summ(n));*/
+console.log(summ(n));
 
 //Задача №5 через рекурсию
 var recursion = function sum(a) {
@@ -104,21 +114,19 @@ if (circle <= R) {
 };
 
 //Задача №7, прямоугольник
-var x1 = 5, y1 = 0, x2 = -1, y2 = 3.5, x3 = -7.5, y3 = -1, x4 = -7, y4 = -2.5;
-var x = +prompt('Введите координаты точки x', ); 
-var y = +prompt('Введите координаты точки y', );
+function graf(x, y) {
 
-function graf(Px, Py, Ax, Ay, Bx, By) {
-	return (Bx - Ax) * (Py - Ay) - (By - Ay) * (Px - Ax);
-}
+	var p1 = -0.6 * x + 3;
+	var	p2 = 0.4 * x - 2;
+	var	p3 = -1.5 * x - 12;
+	var	p4 = 0.5 * x + 4;
 
-var p1 = graf(x, y, x1, y1, x2, y2);
-var p2 = graf(x, y, x2, y2, x3, y3);
-var p3 = graf(x, y, x3, y3, x4, y4);
-var p4 = graf(x, y, x4, y4, x1, y1);
-
-if ((p1 <= 0 && p2 <= 0 && p3 <= 0 && p4 <= 0) || (p1 >= 0 && p2 >= 0 && p3 >= 0 && p4 >= 0)) {
-	alert('Точка ' + x + ':' + y + ' входит внутрь четырёхугольника');
-} else {
-	alert('Точка ' + x + ':' + y + ' не входит внутрь четырёхугольника');
+	if (y <= p1 && y >= p2 && y >= p3 && y <= p4) {
+		return true;
+	} else {
+		return false;
+	};
 };
+console.log(graf(-7, 0));
+console.log(graf(-2, 1));
+console.log(graf(-8, 1));
