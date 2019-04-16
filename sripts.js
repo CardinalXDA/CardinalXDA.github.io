@@ -12,7 +12,7 @@ var filter = function (arr) {
 	var mass = {};
 	return arr.filter(function (argument) {
 		return argument in mass ? 0 : mass[argument]=  1;
-	})
+	});
 };
 console.log(filter(normalizeWords));
 
