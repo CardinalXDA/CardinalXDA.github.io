@@ -1,5 +1,3 @@
-//Здесь можно объявить переменные и функции, которые понядобятся вам для работы ваших функций
-var reg = /[#]([^\s]*)/ig;
 // var getWords = 'Прохожу курс в компнии #intexsoft по #javascript';
 // var normalizeWords = ['web', 'intexsoft', 'JavaScript', 'Intexsoft', 'script', 'programming'];
 
@@ -7,7 +5,10 @@ var reg = /[#]([^\s]*)/ig;
 module.exports = {
 	//1
 	getWords: function (sentence) {
-		return (sentence.match(reg) + "").replace(/#/, '').replace(/\,#/g, ' ').split(" ");
+		var reg = /[#]([^\s]*)/ig;
+		var result = (getWords.match(reg)+ "").replace(/#/, '').replace(/\,#/g, ' ').split(" ");
+		console.log(result);
+		return result
 	},
 	//2
 	normalizeWords: function (words) {
