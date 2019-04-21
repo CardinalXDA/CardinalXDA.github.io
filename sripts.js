@@ -1,4 +1,4 @@
-var getWords = 'Прохожу #курс в компнии #intexsoft, по #javascript ##qwe #123 #,q #Q';
+/*var getWords = 'Прохожу #курс в компнии #intexsoft, по #javascript ##qwe #123 #,q #Q';
 
 var reg = /[#]([^\s]*)/ig;
 var result = (getWords.match(reg)+ "").replace(/#/, '').replace(/\,#/g, ' ').split(" ");
@@ -14,11 +14,13 @@ var filter = function (arr) {
 		return argument in mass ? 0 : mass[argument]=  1;
 	});
 };
-console.log(filter(normalizeWords));
+console.log(filter(normalizeWords));*/
 
 
 //3
-var addressBook = function (command){
+var addressBook;
+
+	function addressBook(command){
 	var cmd = command.split(' ');
 	
 	if (cmd[0] == 'ADD') {
