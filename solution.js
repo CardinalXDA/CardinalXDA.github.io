@@ -14,10 +14,10 @@ module.exports = {
 	normalizeWords: function (words) {
 		words = (words + "").toLowerCase().split(",");
 		var filter = function (arr) {
-			var mass = {};
-			return arr.filter(function (argument) {
-				return argument in mass ? 0 : mass[argument] = 1;
+			var noDublicate = arr.filter(function (argument) {
+				return argument in mass ? 0 : mass[argument]=  1;
 			});
+			return noDublicate.join(', ');
 		};
 		return filter(words);
 	},

@@ -1,4 +1,4 @@
-var getWords = 'Прохожу #курс в компнии #intexsoft, по #javascript ##qwe #123 #,q #Q';
+/*var getWords = 'Прохожу #курс в компнии #intexsoft, по #javascript ##qwe #123 #,q #Q';
 
 var reg = /[#]([^\s]*)/ig;
 // var result = (getWords.match(reg)+ "").replace(/#/, '').replace(/\,#/g, ' ').split(" ");
@@ -9,17 +9,18 @@ function qwe(arr) {
 	console.log(result);
 	return result;
 };
-console.log(qwe(getWords));
+console.log(qwe(getWords));*/
 //2
-/*var normalizeWords = ['web', 'intexsoft', 'JavaScript', 'Intexsoft', 'script', 'programming'];
+var normalizeWords = ['web', 'intexsoft', 'JavaScript', 'Intexsoft', 'script', 'programming'];
 normalizeWords = (normalizeWords+ "").toLowerCase().split(",");
 var filter = function (arr) {
 	var mass = {};
-	return arr.filter(function (argument) {
+	var noDublicate = arr.filter(function (argument) {
 		return argument in mass ? 0 : mass[argument]=  1;
 	});
+	return noDublicate.join(', ');
 };
-console.log(filter(normalizeWords));*/
+console.log(filter(normalizeWords));
 
 
 //3
