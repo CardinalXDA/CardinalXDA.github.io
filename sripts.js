@@ -1,24 +1,39 @@
-// var date = require('./index.js');
-// var time = date('2017-05-16 13:45')
-// .add(24, 'hours')
-// .subtract(1, 'months')
-// .add(3, 'days')
-// .add(15, 'minutes');
-// console.info(time.value);
-// '2017-04-20 14:00';
+function timeShift(inDate) {
+    return {
+        date: new Date(inDate),
 
-// var d =new Date(2017, 05, 16, 13 ,45);
-var date = ('2017-05-16 13:45');
-function timeShift(time) {
-	var date = time.split(' ');
-	var year = date[0].split('-');
-	var time = date[1].split(':');
-	var d =new Date(year[0], year[1], year[2], time[0], time[1]);
-	if (true) {}
+        toString: function () {
+            return this.date.getFullYear() + '-' +
+                ("00" + (this.date.getMonth() + 1)).slice(-2) + '-' +
+                ("00" + this.date.getDate()).slice(-2) + ' ' +
 
+                ("00" + this.date.getHours()).slice(-2) + ':' +
+                ("00" + this.date.getMinutes()).slice(-2);
+        },//toString
 
-	console.log(date);
-	console.log(year);
-	console.log(d);
+        add: function(num, unit) {
+            this.setValue(num, this.method[unit]);
+            this.value = this.toString();
+            return this;
+        },
+        substract: function(num, unit) {
+            return this.add(-num, unit);
+        },
+
+        method: {
+            "years": "FullYear",
+            "months": "Month",
+            "days": "Date",
+            "hours": "Hours",
+            "minutes": "Minutes"
+        },
+
+        setValue: function(num, unit) {
+            this.date["setUTC" + unit](num + this.date["getUTC" + unit]());
+            return this;
+        },
+    }
 };
-console.log(timeShift('2017-05-16 13:45'));
+console.log(timeShift('2019-12-21 19:55').add(1, 'hours').substract(1, 'months'));
+
+
