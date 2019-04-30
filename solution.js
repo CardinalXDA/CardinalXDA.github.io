@@ -1,25 +1,26 @@
 // var getWords = 'Прохожу курс в компнии #intexsoft по #javascript';
 // var normalizeWords = ['web', 'intexsoft', 'JavaScript', 'Intexsoft', 'script', 'programming'];
 var book = {};
+var reg = /[#]([^\s]*)/ig;
+
 
 module.exports = {
 	//1
 	getWords: function (sentence) {
-		var reg = /[#]([^\s]*)/ig;
-		var result = (getWords.match(reg)+ "").replace(/#/, '').replace(/\,#/g, ' ').split(" ");
+		var result = (sentence.match(reg)+ "").replace(/#/, '').replace(/\,#/g, ' ').split(" ");
 		console.log(result);
 		return result
 	},
 	//2
 	normalizeWords: function (words) {
 		words = (words + "").toLowerCase().split(",");
-		var filter = function (arr) {
-			var noDublicate = arr.filter(function (argument) {
-				return argument in mass ? 0 : mass[argument]=  1;
-			});
-			return noDublicate.join(', ');
-		};
-		return filter(words);
+    	var filter = function (arr) {
+            var noDublicate = arr.filter(function (argument) {
+                return argument in mass ? 0 : mass[argument]=  1;
+            });
+            return noDublicate.join(', ');
+        };
+        return filter(words);
 	},
 	//3
 	addressBook: function (command) {

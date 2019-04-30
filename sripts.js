@@ -1,30 +1,54 @@
-/*var getWords = 'Прохожу #курс в компнии #intexsoft, по #javascript ##qwe #123 #,q #Q';
+// var getWords = 'Прохожу #курс в компнии #intexsoft, по #javascript ##qwe #123 #,q #Q';
 
-var reg = /[#]([^\s]*)/ig;
+// var reg = /[#]([^\s]*)/ig;
 // var result = (getWords.match(reg)+ "").replace(/#/, '').replace(/\,#/g, ' ').split(" ");
 // console.log(result);
 
-function qwe(arr) {
-	var result = (getWords.match(reg)+ "").replace(/#/, '').replace(/\,#/g, ' ').split(" ");
-	console.log(result);
-	return result;
-};
-console.log(qwe(getWords));*/
-//2
-/*var normalizeWords = ['web', 'intexsoft', 'JavaScript', 'Intexsoft', 'script', 'programming'];
-normalizeWords = (normalizeWords+ "").toLowerCase().split(",");
-var filter = function (arr) {
-	var mass = {};
-	var noDublicate = arr.filter(function (argument) {
-		return argument in mass ? 0 : mass[argument]=  1;
-	});
-	return noDublicate.join(', ');
-};
-console.log(filter(normalizeWords));*/
+// function qwe(arr) {
+// 	var result = (getWords.match(reg)+ "").replace(/#/, '').replace(/\,#/g, ' ').split(" ");
+// 	console.log(result);
+// 	return result;
+// };
+// console.log(qwe(getWords));
 
+
+//2
+var mass = ['web', 'intexsoft', 'JavaScript', 'Intexsoft', 'script', 'programming'];
+// normalizeWords = (normalizeWords+ "").toLowerCase().split(",");
+// var filter = function (arr) {
+// 	var mass = {};
+// 	var noDublicate = arr.filter(function (argument) {
+// 		return argument in mass ? 0 : mass[argument]=  1;
+// 	});
+// 	return noDublicate.join(', ');
+// };
+// console.log(filter(normalizeWords));
+
+// normalizeWords: function (words) {
+//         words = (words + "").toLowerCase().split(",");
+//         var filter = function (arr) {
+//             var noDublicate = arr.filter(function (argument) {
+//                 return argument in mass ? 0 : mass[argument]=  1;
+//             });
+//             return noDublicate.join(', ');
+//         };
+//         return filter(words);
+//     },
+
+function normalizeWords(words) {
+    words = (words + "").toLowerCase().split(",");
+    var filter = function (arr) {
+            var noDublicate = arr.filter(function (argument) {
+                return argument in mass ? 0 : mass[argument]=  1;
+            });
+            return noDublicate.join(', ');
+        };
+        return filter(words);
+};
+console.log(normalizeWords(mass)); 
 
 //3
-var book = {};
+/*var book = {};
 function addressBook(command) {
     var cmd = command.split(' ');
     switch (cmd[0]) {
@@ -71,4 +95,4 @@ addressBook('REMOVE_PHONE 555-10-03');
 addressBook('ADD Alex 555-20-01');
 addressBook('SHOW');
 addressBook('REMOVE_PHONE 555-20-01');
-addressBook('SHOW');
+addressBook('SHOW');*/
