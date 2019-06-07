@@ -13,7 +13,7 @@
 
 
 //2
-var mass = ['web', 'intexsoft', 'JavaScript', 'Intexsoft', 'script', 'programming'];
+// var mass = ['web', 'intexsoft', 'JavaScript', 'Intexsoft', 'script', 'programming'];
 // normalizeWords = (normalizeWords+ "").toLowerCase().split(",");
 // var filter = function (arr) {
 // 	var mass = {};
@@ -35,20 +35,20 @@ var mass = ['web', 'intexsoft', 'JavaScript', 'Intexsoft', 'script', 'programmin
 //         return filter(words);
 //     },
 
-function normalizeWords(words) {
-    words = (words + "").toLowerCase().split(",");
-    var filter = function (arr) {
-            var noDublicate = arr.filter(function (argument) {
-                return argument in mass ? 0 : mass[argument]=  1;
-            });
-            return noDublicate.join(', ');
-        };
-        return filter(words);
-};
-console.log(normalizeWords(mass)); 
+// function normalizeWords(words) {
+//     words = (words + "").toLowerCase().split(",");
+//     var filter = function (arr) {
+//             var noDublicate = arr.filter(function (argument) {
+//                 return argument in mass ? 0 : mass[argument]=  1;
+//             });
+//             return noDublicate.join(', ');
+//         };
+//         return filter(words);
+// };
+// console.log(normalizeWords(mass)); 
 
 //3
-/*var book = {};
+var book = {};
 function addressBook(command) {
     var cmd = command.split(' ');
     switch (cmd[0]) {
@@ -95,4 +95,4 @@ addressBook('REMOVE_PHONE 555-10-03');
 addressBook('ADD Alex 555-20-01');
 addressBook('SHOW');
 addressBook('REMOVE_PHONE 555-20-01');
-addressBook('SHOW');*/
+addressBook('SHOW');

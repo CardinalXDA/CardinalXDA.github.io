@@ -1,13 +1,13 @@
 // var getWords = 'Прохожу курс в компнии #intexsoft по #javascript';
 // var normalizeWords = ['web', 'intexsoft', 'JavaScript', 'Intexsoft', 'script', 'programming'];
 var book = {};
-var reg = /[#]([^\s]*)/ig;
+// var reg = /[#]([^\s]*)/ig;
 
 
 module.exports = {
 	//1
 	getWords: function (sentence) {
-		var result = (sentence.match(reg)+ "").replace(/#/, '').replace(/\,#/g, ' ').split(" ");
+		var result = (sentence.match(/[#]([^\s]*)/ig)+ "").replace(/#/, '').replace(/\,#/g, ' ').split(" ");
 		console.log(result);
 		return result
 	},
@@ -15,6 +15,7 @@ module.exports = {
 	normalizeWords: function (words) {
 		words = (words + "").toLowerCase().split(",");
     	var filter = function (arr) {
+    		var mass = {};
             var noDublicate = arr.filter(function (argument) {
                 return argument in mass ? 0 : mass[argument]=  1;
             });
